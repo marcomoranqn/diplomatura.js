@@ -10,7 +10,7 @@ import {
 import baseDeDatos from './basededatos';
 
 // materiasAprobadasByNombreAlumno
-console.log('-----------------------------------------------------');
+console.log('----------------------------------------------------');
 console.log('Ejecutando ejercicios materiasAprobadasByNombreAlumno.');
 
 const materiasAprobadasPorSuzana = materiasAprobadasByNombreAlumno(
