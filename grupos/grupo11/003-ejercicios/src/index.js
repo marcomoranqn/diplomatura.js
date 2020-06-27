@@ -1,25 +1,56 @@
+// EJ #1
 import {Collection} from "./1.collection";
 
-// EJ #1
 const col = new Collection();
-console.log("col vacia:" + col);
-
 const col2 = new Collection([1,2,3]);
-console.log("col con items:" + col2.toString());
+
+console.log(`##########################
+#    EJ 01) Collection
+##########################
+
+coleccion vacia: ${col}
+coleccion con items: ${col2.toString()}`);
 
 if (col2.has(2)){
     col2.delete(2);
 } else {
     col2.add(5);
 }
-console.log("nuevo col:" + col2.toString());
+
+console.log(`coleccion modificada: ${col2.toString()}`);
+
+
+// EJ #2
+import {Vector} from "./2.vector";
+
+const a = new Vector(2,3);
+const b = new Vector(1,-3);
+const c = a.sumar(b);
+
+console.log(`
+
+##########################
+#    EJ 02) Vector
+##########################
+
+Vector A: (${a.x},${a.y})
+Vector B: (${b.x},${b.y})
+Vector A+B: (${c.x},${c.y})
+`);
 
 
 // EJ #3
 import {delay} from "./3.delay";
 
-console.log("=========");
-console.log("corrida 1");
+console.log(`
+
+#################################
+#    EJ 03) Delay con callbacks
+#################################
+
+=================================
+corrida 1
+`);
 
 let run = () => {
     console.log(1);
@@ -32,8 +63,11 @@ let run = () => {
 
 run();
 
-console.log("=========");
-console.log("corrida 2");
+console.log(`
+
+=================================
+corrida 2
+`);
 
 run = () => {
     console.log(1);
@@ -47,7 +81,27 @@ run = () => {
 run();
 
 // EJ #4
-import {users} from "./4.api";
+import {getUserById} from "./4.api";
 
-users();
-//console.log("=========");
+console.log(`
+
+######################################
+#    EJ 04) API con Promise chaining
+######################################
+
+`);
+
+getUserById(1);
+
+// EJ #5
+import {getUserByIdAsync} from "./5.api_async";
+
+console.log(`
+
+######################################
+#    EJ 05) API con Async/await
+######################################
+
+`);
+
+getUserByIdAsync(2);
