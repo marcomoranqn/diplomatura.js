@@ -33,15 +33,16 @@ export const materiasAprobadasByNombreAlumno = (nombreAlumno) => {
       })
     }
   })*/
-  const getIdAlumnoByNombre = (nombre) => basededatos.alumnos.find((a)=>a.nombre === nombre);
+  const getIdAlumnoByNombre = (nombre) => basededatos.alumnos.find((a)=>a.nombre === nombre).id;
   const getMateriaById = (id) => basededatos.materias.find((m) => m.id = id);
 
-  console.log(nombreAlumno);
-  const alumno = getIdAlumnoByNombre(nombreAlumno).id;
+  //console.log(nombreAlumno);
+  const alumno = getIdAlumnoByNombre(nombreAlumno);
   console.log("idalumno : "+alumno);
-  const calificacion = basededatos.calificaciones.filter(cal => cal.alumno === alumno && cal.nota >= 4).
-  //console.log(`cal${calificacion}`);
-  map ((mat) =>  );
+  const calificacion = basededatos.calificaciones
+    .filter(cal => cal.alumno === alumno && cal.nota >= 4)
+    .map((getMateriaById({materia})));
+  //map ((mat) =>  );
   return calificacion;
 };
 
