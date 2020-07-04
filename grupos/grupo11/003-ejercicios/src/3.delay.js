@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export function delay(mensaje, milisegundos) {
   setTimeout(() => {
     console.log(mensaje);
@@ -12,3 +13,9 @@ export function run() {
   console.log(3);
   delay('Terminó 3', 1000);
 }
+=======
+export const delay = function(msg, ms) { 
+    setTimeout( () => console.log(msg)
+        , ms)
+};
+>>>>>>> 84fc77038c2d9dfa1d03980cd05b2b69a468cafd
