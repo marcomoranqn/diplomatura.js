@@ -105,3 +105,28 @@ console.log(`
 `);
 
 getUserByIdAsync(2);
+
+// EJ #6
+import {delay_async} from "./6.delay async";
+
+console.log(`
+
+######################################
+#    EJ 06) Delay con Promises
+######################################
+
+`);
+
+run = () => {
+    console.log(1);
+    delay_async(1500)
+        .then( () => console.log('Terminó 3.1') );
+    console.log(2);
+    delay_async(1500)
+        .then( () => console.log('Terminó 3.2') );
+    console.log(3);
+    delay_async(1500)
+        .then( () => console.log('Terminó 3.3') );
+};
+
+run();
