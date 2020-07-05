@@ -54,11 +54,11 @@ corrida 1
 
 let run = () => {
     console.log(1);
-    delay('Terminó 1.1', 1000);
+    delay('Terminó 1.1', 100);
     console.log(2);
-    delay('Terminó 1.2', 1000);
+    delay('Terminó 1.2', 100);
     console.log(3);
-    delay('Terminó 1.3', 1000);
+    delay('Terminó 1.3', 100);
 };
 
 run();
@@ -71,11 +71,11 @@ corrida 2
 
 run = () => {
     console.log(1);
-    delay('Terminó 2.1', 3000);
+    delay('Terminó 2.1', 300);
     console.log(2);
-    delay('Terminó 2.2', 2000);
+    delay('Terminó 2.2', 200);
     console.log(3);
-    delay('Terminó 2.3', 1000);
+    delay('Terminó 2.3', 100);
 };
 
 run();
@@ -107,26 +107,44 @@ console.log(`
 getUserByIdAsync(2);
 
 // EJ #6
-import {delay_async} from "./6.delay async";
+import {delay_prom} from "./6.delay async";
 
-console.log(`
+run = () => {
+    //job 1
+    delay_prom( 2000 )
+    .then( function job1(){
+            console.log( 1 );
+            return delay_prom( 100 );
+        } 
+    )
+    .then( function job2(){
+            console.log( "Terminó 1" );
+            console.log( 2 );
+            return delay_prom( 100 );
+        } 
+    )
+    .then( function job3(){
+            console.log( "Terminó 2" );
+            console.log( 3 );
+            return delay_prom( 100 );
+        } 
+    )
+    .then( function job4(){
+            console.log( "Terminó 3" );
+        } 
+    )
+};
+
+delay_prom( 2000 )
+.then( function (){
+    console.log(`
 
 ######################################
 #    EJ 06) Delay con Promises
 ######################################
 
 `);
+})
+.then( run() );
 
-run = () => {
-    console.log(1);
-    delay_async(1500)
-        .then( () => console.log('Terminó 3.1') );
-    console.log(2);
-    delay_async(1500)
-        .then( () => console.log('Terminó 3.2') );
-    console.log(3);
-    delay_async(1500)
-        .then( () => console.log('Terminó 3.3') );
-};
-
-run();
+//run();
