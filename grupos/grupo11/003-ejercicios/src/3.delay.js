@@ -12,7 +12,7 @@ export function run() {
   console.log(3);
   delay('Terminó 3', 1000);
 }
-export const delay = function(msg, ms) { 
-    setTimeout( () => console.log(msg)
-        , ms)
-};
+//export const delay = function(msg, ms) {
+//    setTimeout( () => console.log(msg)
+//        , ms)
+//};
