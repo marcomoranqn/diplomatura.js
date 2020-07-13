@@ -1,13 +1,16 @@
 import express from 'express';
+import { getAlbumsFull, getAlbumById } from './api';
 
 var albumsApi = express.Router();
 
 albumsApi.get('/', function (req, res) {
-  res.send('Hola albums!.');
+  getAlbumsFull()
+    .then( (result) => res.json(result) );
 });
 
 albumsApi.get('/:id', function (req, res) {
-  res.send(`Hola album ${req.params.id}.`);
+  getAlbumById(req.params.id)
+    .then( (result) => res.json(result) );
 });
 
 export default albumsApi;

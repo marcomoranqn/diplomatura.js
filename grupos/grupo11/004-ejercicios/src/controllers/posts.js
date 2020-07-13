@@ -1,13 +1,16 @@
-import express from 'express';
+import express, { response } from 'express';
+import { getPostsFull, getPostById } from './api';
 
 var postApi = express.Router();
 
 postApi.get('/', function (req, res) {
-  res.send('Hola posts!.');
+  getPostsFull()
+    .then( (result) => res.json(result) );
 });
 
 postApi.get('/:id', function (req, res) {
-  res.send(`Hola post ${req.params.id}.`);
+  getPostById(req.params.id)
+    .then( (result) => res.json(result) );
 });
 
 export default postApi;
