@@ -56,7 +56,7 @@ export async function connectCollection(collection) {
         (err) => console.log(err);
       }
     });
-    return client.db(dbName).collection('profesores');
+    return client.db(dbName).collection(collection);
     //return client;
   } catch (err) {
     console.log(err);

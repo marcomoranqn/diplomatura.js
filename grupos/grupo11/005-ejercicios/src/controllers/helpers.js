@@ -1,7 +1,7 @@
 // modulo helper
 
 export async function getElementById(collection, id) {
-  await collection
+  return await collection
     .findOne({ id: id })
     .then((result) => {
       if (result) {
@@ -14,12 +14,12 @@ export async function getElementById(collection, id) {
     })
     .catch((err) => {
       console.error(`Failed to find id document: ${err}`);
-      return { ok: 'NO' };
+      return false;
     });
 }
 
 export async function getElementByNombre(collection, nombre) {
-  await collection
+  return await collection
     .findOne({ nombre: nombre })
     .then((result) => {
       if (result) {
