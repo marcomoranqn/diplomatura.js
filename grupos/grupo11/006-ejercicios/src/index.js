@@ -155,17 +155,25 @@ if (app4) {
     divGlobo.style.border = '10px';
     divGlobo.style.display = 'inline-block';
     divGlobo.style.borderRadius = '50%';
+    divGlobo.id = 'globo' + i;
     divGlobo.innerHTML = i;
-    divGlobo.addEventListener('click', () => {
-      console.log(globo);
-      eliminarGlobo(divGlobo);
+    divGlobo.addEventListener('click', (event) => {
+      //console.log(globo);
+      eliminarGlobo(i);
+      event.stopPropagation();
+      event.preventDefault();
     });
     app4.appendChild(divGlobo);
   }
 
   //divGlobo.addEventListener('click',eliminarGlobo(divGlobo));
 
-  function eliminarGlobo(globo) {
-    app4.removeChild(globo);
+  function eliminarGlobo(id) {
+    globo = document.getElementById('globo' + id);
+    app4.removeChild(globo); //(app4.lastElementChild);
+    if (!app4.lastElementChild) {
+      console.log('no hay mas elementos');
+      alert('GANASTE!');
+    }
   }
 }
