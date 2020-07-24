@@ -172,9 +172,9 @@ router.put('/', async function (req, res) {
   //client.close();
 });
 
-// Eliminar el profesor indicado en "id" y devolver un objeto JSON {ok: true}
+// Eliminar la materia indicado en "id" y devolver un objeto JSON {ok: true}
 router.delete('/', async function (req, res) {
-  const collection = await connectCollection('profesores');
+  const collection = await connectCollection('materias');
 
   //Busco que esté el profesor
   await getElementById(collection, parseInt(req.query.id))
